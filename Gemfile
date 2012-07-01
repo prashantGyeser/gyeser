@@ -10,7 +10,7 @@ gem 'sqlite3'
 gem 'pg'
 
 group :development do 
-	gem 'respec-rails'
+	gem 'rspec-rails'
 end
 
 group :test do

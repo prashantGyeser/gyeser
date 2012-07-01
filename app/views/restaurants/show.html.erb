@@ -6,14 +6,19 @@
   <p><%= @restaurant.tags %></p>
   <div class="clearfix"></div>
 
+  
+
   <div class="foodMenu">
     <h3>Appetizers</h3>
-    <p class="menuItemTitle">Artichoke Spinach Dip <span class="menuItemPrice">Rs. 125</span></p>
-    <p class="menuItemDescription">
-      One of my all-time favorite restaurant appetizers, and I was finally able to recreate the perfect blend of flavors at home. Creamy, cheesy and a great balance of spinach and artichoke. A must for your dip and appetizer repertoire!
-    </p>
-    <a href="#" class="large blue awesome">Add to cart</a>
+    <% @menu_items.each do |menu_item| %>
+      <p class="menuItemTitle"><%= menu_item.name %> <span class="menuItemPrice">Rs. <%= menu_item.price %></span></p>
+      <p class="menuItemDescription">
+        <%= menu_item.description %>
+      </p>  
+      <a href="#" class="large blue awesome">Add to cart</a>
+    <% end %>
   </div>
+
 </div>
 <div class="cart">
   <h2>Items in cart</h2>
