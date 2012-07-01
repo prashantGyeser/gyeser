@@ -2,7 +2,8 @@
     
   <%=  form_tag restaurants_path, :class =>"form-wrapper cf", :method => :get do%>
 	<!--<form class="form-wrapper cf"> -->
-	  <input type="text" placeholder="Enter a street name..." id="query" required>
+  <%= text_field_tag :search, params[:search], :placeholder => "Enter a street name..."%>
+	<!--  <input type="text" placeholder="Enter a street name..." id="query" required> -->
 	  <button type="submit">Search</button>
 	<!--</form>   -->
   <%end%>

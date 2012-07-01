@@ -2,7 +2,12 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.all
+    if params[:search].present?
+      @restaurants = Restaurant.near(params[:search], 5, :order => :distance)
+    else
+      @restaurants = Restaurant.all  
+    end
+    
 
     respond_to do |format|
       format.html # index.html.erb
