@@ -1,10 +1,11 @@
 <div role="main" id="main">
     
-	<form class="form-wrapper cf">
+  <%=  form_tag restaurants_path, :class =>"form-wrapper cf", :method => :get do%>
+	<!--<form class="form-wrapper cf"> -->
 	  <input type="text" placeholder="Enter a street name..." id="query" required>
 	  <button type="submit">Search</button>
-	</form>   
-
+	<!--</form>   -->
+  <%end%>
   <div class="explanation">
     <div class="column">
       <h2><img src="/assets/questionIcon.png">What is Urad Store</h2>

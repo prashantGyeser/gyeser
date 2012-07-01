@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701104714) do
+ActiveRecord::Schema.define(:version => 20120701170553) do
 
   create_table "menu_items", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20120701104714) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "deliveryTime"
+    t.float    "longitude"
+    t.float    "latitude"
   end
 
 end

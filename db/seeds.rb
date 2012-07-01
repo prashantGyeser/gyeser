@@ -69,4 +69,4 @@ category4 = "Appetizer"
 MenuItem.create!(:name => menuItemName1, :description => menuItemDesc1, :category => category1, :price => menuItemPrice1, :restaurant_id => 1)
 MenuItem.create!(:name => menuItemName2, :description => menuItemDesc2, :category => category2, :price => menuItemPrice2, :restaurant_id => 1)
 MenuItem.create!(:name => menuItemName3, :description => menuItemDesc3, :category => category3, :price => menuItemPrice3, :restaurant_id => 1)
-MenuItem.create!(:name => menuItemName3, :description => menuItemDesc3, :category => category3, :price => menuItemPrice3, :restaurant_id => 1)
+MenuItem.create!(:name => menuItemName4, :description => menuItemDesc4, :category => category4, :price => menuItemPrice4, :restaurant_id => 1)
