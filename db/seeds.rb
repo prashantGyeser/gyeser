@@ -5,6 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Restaurant seed
 name1 = "Barbeque Nation"
 address1 = "6-3-249/5/1, Ground Floor,ANR Centre, Road No. 1, Banjara Hills, Hyderabad"
 tags1 = "European, North Indian, Mediterranean"
@@ -38,3 +40,33 @@ Restaurant.create!(:name => name2, :address => address2, :tags => tags2, :delive
 Restaurant.create!(:name => name3, :address => address3, :tags => tags3, :deliveryTime => delivery3, :imageURL => imageURL, :detailsImageURL => detailsImageURL)
 Restaurant.create!(:name => name4, :address => address4, :tags => tags4, :deliveryTime => delivery4, :imageURL => imageURL, :detailsImageURL => detailsImageURL)
 Restaurant.create!(:name => name5, :address => address5, :tags => tags5, :deliveryTime => delivery5, :imageURL => imageURL, :detailsImageURL => detailsImageURL)
+
+# Menu seed
+menuItemName1 = "Spinach Lasagna"
+menuItemDesc1 = "Traditional layered pasta with ground Italian sausage, beef and Italian cheeses baked with house red sauce and topped with melted mozzarella cheese."
+menuItemPrice1 = 500
+menuItemRestId1 = 1
+category1 = "Appetizer"
+
+menuItemName2 = "Chopped Salad"
+menuItemDesc2 = "Classic chopped salad with chipped greens,cucumber,blue cheese, walnuts with balsamic vinaigrette"
+menuItemPrice2 = 150
+menuItemRestId2 = 1
+category2 = "Appetizer"
+
+menuItemName3 = "Nachos"
+menuItemDesc3 = "Blend of marinated chicken breast, diced tomatoes, garlic, onion, olive oil, Italian cherry peppers topped with melted mozzarella and fresh basil served over nacho chips and a side of Aflredo sauce"
+menuItemPrice3 = 400
+menuItemRestId3 = 1
+category3 = "Main Course"
+
+menuItemName4 = "Italian Sampler"
+menuItemDesc4 = "A combination of toasted ravioli, fried mozzarella sticks and fried calamari served with our house red sauce"
+menuItemPrice4 = 600
+menuItemRestId4 = 1
+category4 = "Appetizer"
+
+MenuItem.create!(:name => menuItemName1, :description => menuItemDesc1, :category => category1, :price => menuItemPrice1, :restaurant_id => 1)
+MenuItem.create!(:name => menuItemName2, :description => menuItemDesc2, :category => category2, :price => menuItemPrice2, :restaurant_id => 1)
+MenuItem.create!(:name => menuItemName3, :description => menuItemDesc3, :category => category3, :price => menuItemPrice3, :restaurant_id => 1)
+MenuItem.create!(:name => menuItemName3, :description => menuItemDesc3, :category => category3, :price => menuItemPrice3, :restaurant_id => 1)
