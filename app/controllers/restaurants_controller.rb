@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants.json
   def index
     if params[:search].present?
-      @restaurants = Restaurant.near(params[:search], 5, :order => :distance)
+      @restaurants = Restaurant.near(params[:search], 3, :order => :distance)
     else
       @restaurants = Restaurant.all  
     end
