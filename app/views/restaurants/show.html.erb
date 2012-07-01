@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="restaurantDetailsSummary">
+  <img src="<%= @restaurant.detailsImageURL%>">
+  <h2><%= @restaurant.name %></h2>
+  <p><%= @restaurant.tags %></p>
+  <div class="clearfix"></div>
+
+  <div class="foodMenu">
+    <h3>Appetizers</h3>
+    <p class="menuItemTitle">Artichoke Spinach Dip <span class="menuItemPrice">Rs. 125</span></p>
+    <p class="menuItemDescription">
+      One of my all-time favorite restaurant appetizers, and I was finally able to recreate the perfect blend of flavors at home. Creamy, cheesy and a great balance of spinach and artichoke. A must for your dip and appetizer repertoire!
+    </p>
+    <a href="#" class="large blue awesome">Add to cart</a>
+  </div>
+</div>
+<div class="cart">
+  <h2>Items in cart</h2>
+  <p><span class="numberOfItemsInRecipt">4</span> Artichoke Spinach Dip <span class="reciptPrice">Rs. 500</span></p>
+  <p><span class="numberOfItemsInRecipt">2</span> Crakin Burger <span class="reciptPrice">Rs. 500</span></p>
+  <h4 class="reciptTotal">Total: Rs. 1000</h4>
+  <a href="#" class="large orange awesome">Checkout now</a>
+</div>
+
+
+
+<!--<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> | -->
+<!-- <%= link_to 'Back', restaurants_path %> -->

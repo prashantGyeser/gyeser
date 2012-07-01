@@ -1,0 +1,29 @@
+<form class="form-wrapper cf">
+  <input type="text" placeholder="Enter a street name..." id="query" required>
+  <button type="submit">Search</button>
+</form>
+
+<div class="restaurantListFilter">
+  <h2 class="filterHeading">Categories</h2>
+  <ul>
+    <li>Chinese <span class="numberOfItemsInCategory selected">24</span></li>
+    <li>North Indian <span class="numberOfItemsInCategory">10</span></li>
+    <li>Western <span class="numberOfItemsInCategory">22</span></li>
+    <li>South Indian <span class="numberOfItemsInCategory">18</span></li>
+  </ul>
+</div>
+
+<% @restaurants.each do |restaurant| %>
+  <div class="restaurants">
+      <img src="<%= restaurant.imageURL %>">
+      <div class="restaurantDetails">
+        <h4><a href="<%= restaurant_path(restaurant) %>"><%= restaurant.name %></a></h4>
+        <div class="fixed"></div>
+        <p>Delivery time: <%= restaurant.deliveryTime %> mins</p>
+        <p>Cuisines: <%= restaurant.tags %></p>
+      </div>
+    </div>
+<% end %>
+
+
+<!--<%= link_to 'New Restaurant', new_restaurant_path %>-->

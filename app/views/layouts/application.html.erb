@@ -1,14 +1,100 @@
 <!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <html>
 <head>
+	<meta charset="utf-8">
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/i/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Uradv2</title>
+  <meta name="description" content="">
+
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except this Modernizr build.
+       Modernizr enables HTML5 elements & feature detects for optimal performance.
+       Create your own custom Modernizr build: www.modernizr.com/download/ -->
+  <%= javascript_include_tag "modernizr-2.5.3.min" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery.autocomplete" %>
+  <%= javascript_include_tag "jquery.raty.min" %>
+  
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+	<header>
+	    <div class="topBar">
+	      <img src="/assets/logoOption2.png">
+	      <ul class="loginAndCartHeader">
+	        <li><a href="#">Login</a></li>
+	        <li><img src="/assets/cartIcon.png"> <a href="#">Cart</a></li>
+	      </ul>
+	      <div class="clearfix"></div>
+	    </div>
+	</header>
+  <div role="main" id="main">
+    <%= yield %>
+  </div>
 
-<%= yield %>
+  <!-- JavaScript at the bottom for fast page loading -->
 
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+  
+
+  <!-- Auto complete JS-->
+  <script type="text/javascript">
+    var a = $('#query').autocomplete({ 
+    serviceUrl:'service/autocomplete.ashx',
+    minChars:2, 
+    delimiter: /(,|;)\s*/, // regex or character
+    maxHeight:400,
+    width:339,
+    zIndex: 9999,
+    deferRequestBy: 0, //miliseconds
+    params: { country:'Yes' }, //aditional parameters
+    noCache: false, //default is false, set to true to disable caching
+    // callback function:
+    onSelect: function(value, data){ alert('You selected: ' + value + ', ' + data); },
+    // local autosugest options:
+    lookup: ['January', 'February', 'March', 'April', 'May', 'January', 'January'] //local lookup values 
+  });
+  </script>
+  
+  <!--Rating system Javascript-->
+  <script type="text/javascript">
+    $(function() {
+      $('.fixed').raty({
+            readOnly  : true,
+            score   : 2
+          });
+    });
+  </script>
+
+  <!-- scripts concatenated and minified via build script -->
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <!-- end scripts -->
+
+  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+       mathiasbynens.be/notes/async-analytics-snippet -->
+  <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
 </body>
 </html>
