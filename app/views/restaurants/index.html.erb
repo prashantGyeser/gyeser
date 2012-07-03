@@ -41,6 +41,15 @@
 <!--<%= link_to 'New Restaurant', new_restaurant_path %>-->
 
 <% content_for :javascript do %>
+<!-- Tracking the lightbox and the people who click it--> 
+<script type="text/javascript">
+  $(document).ready(function(){
+  mixpanel.track("ul#cuisineFilterList a");
+  });
+</script>
+
+
+<!-- Light box code -->
 <script src="assets/jquery.lightbox_me.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
@@ -51,7 +60,6 @@
         centered: true
       });
     });
-
   });
   selected
 </script>
