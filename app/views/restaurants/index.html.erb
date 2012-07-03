@@ -46,11 +46,12 @@
   $(document).ready(function(){
   mixpanel.track("ul#cuisineFilterList a");
   });
+  
 </script>
 
 
 <!-- Light box code -->
-<script src="assets/jquery.lightbox_me.js"></script>
+<%= javascript_include_tag "jquery.lightbox_me" %>
 <script type="text/javascript">
   $(document).ready(function(){
     $("div.lightBox").hide();
