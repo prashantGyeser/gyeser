@@ -6,29 +6,40 @@
     <!--<button type="submit">Search</button>-->
   <!--</form>   -->
   <%end%>
+<% if (@restaurants.nil?) %>
+  <div class="restaurantListFilter">
+    <h2 class="filterHeading">Cuisine</h2>
+    <ul id="cuisineFilterList">
+      <li><a href="#" class="cuisineFilter">Chinese <!--<span class="numberOfItemsInCategory">24</span>--></a></li>
+      <li><a href="#" class="cuisineFilter">North Indian<!--<span class="numberOfItemsInCategory">10</span>--></a></li>
+      <li><a href="#" class="cuisineFilter">Western<!--<span class="numberOfItemsInCategory">22</span>--></a></li>
+      <li><a href="#" class="cuisineFilter">South Indian<!--<span class="numberOfItemsInCategory">18</span>--></a></li>
+    </ul>
+  </div>
 
-<div class="restaurantListFilter">
-  <h2 class="filterHeading">Cuisine</h2>
-  <ul id="cuisineFilterList">
-    <li><a href="#" class="cuisineFilter">Chinese <!--<span class="numberOfItemsInCategory">24</span>--></a></li>
-    <li><a href="#" class="cuisineFilter">North Indian<!--<span class="numberOfItemsInCategory">10</span>--></a></li>
-    <li><a href="#" class="cuisineFilter">Western<!--<span class="numberOfItemsInCategory">22</span>--></a></li>
-    <li><a href="#" class="cuisineFilter">South Indian<!--<span class="numberOfItemsInCategory">18</span>--></a></li>
-  </ul>
-</div>
-
-<% @restaurants.each do |restaurant| %>
-  <div class="restaurants">
-      <img src="<%= restaurant.imageURL %>">
-      <div class="restaurantDetails">
-        <h4><a href="<%= restaurant_path(restaurant) %>"><%= restaurant.name %></a></h4>
-        <div class="fixed"></div>
-        <p>Delivery time: <%= restaurant.deliveryTime %> mins</p>
-        <p class="<%= restaurant.tags %>">Cuisines: <%= restaurant.tags %></p>
+  <% @restaurants.each do |restaurant| %>
+    <div class="restaurants">
+        <img src="<%= restaurant.imageURL %>">
+        <div class="restaurantDetails">
+          <h4><a href="<%= restaurant_path(restaurant) %>"><%= restaurant.name %></a></h4>
+          <div class="fixed"></div>
+          <p>Delivery time: <%= restaurant.deliveryTime %> mins</p>
+          <p class="<%= restaurant.tags %>">Cuisines: <%= restaurant.tags %></p>
+        </div>
       </div>
-    </div>
+  <% end %>
+<% else %>
+  <div class="searchNoResults">
+    <h1>No results found</h1>
+    <p>Currently we only serve Gachibowli, Hyderabad, India</p>
+    <h3>Notify Me</h3>
+    <p>Leave your email and we will notify you once we are up in more locations.</p>
+    <form>
+      <%= text_field_tag :email, params[:email], :placeholder => "Enter your email..." %>
+      <%= button_tag "Notify Me", :name => nil %>
+    </form>  
+  </div>  
 <% end %>
-
 <div class="lightBox">
   <h2>Notify Me</h2>
   <p>We are currently testing this feature. We will let you know as soon as it is live. Leave your email and we will notify you once it is up.</p>
