@@ -46,6 +46,7 @@
   $(document).ready(function(){
     $("ul#cuisineFilterList a").click(function(event){
       event.preventDefault();
+      mixpanel.track("Filter link clicked");
       $("div.lightBox").lightbox_me({
         centered: true
       });
