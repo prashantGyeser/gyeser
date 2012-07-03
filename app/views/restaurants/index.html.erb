@@ -41,7 +41,7 @@
 <!--<%= link_to 'New Restaurant', new_restaurant_path %>-->
 
 <% content_for :javascript do %>
-<script src="assets/jquery.lightbox_me.js"></script>
+<%= javascript_include_tag "jquery.lightbox_me" %>
 <script type="text/javascript">
   $(document).ready(function(){
     $("ul#cuisineFilterList a").click(function(event){
