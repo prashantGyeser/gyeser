@@ -8,12 +8,12 @@
   <%end%>
 
 <div class="restaurantListFilter">
-  <h2 class="filterHeading">Categories</h2>
-  <ul>
-    <li>Chinese <span class="numberOfItemsInCategory selected">24</span></li>
-    <li>North Indian <span class="numberOfItemsInCategory">10</span></li>
-    <li>Western <span class="numberOfItemsInCategory">22</span></li>
-    <li>South Indian <span class="numberOfItemsInCategory">18</span></li>
+  <h2 class="filterHeading">Cuisine</h2>
+  <ul id="cuisineFilterList">
+    <li><a href="#" class="cuisineFilter">Chinese <!--<span class="numberOfItemsInCategory">24</span>--></a></li>
+    <li><a href="#" class="cuisineFilter">North Indian<!--<span class="numberOfItemsInCategory">10</span>--></a></li>
+    <li><a href="#" class="cuisineFilter">Western<!--<span class="numberOfItemsInCategory">22</span>--></a></li>
+    <li><a href="#" class="cuisineFilter">South Indian<!--<span class="numberOfItemsInCategory">18</span>--></a></li>
   </ul>
 </div>
 
@@ -24,10 +24,34 @@
         <h4><a href="<%= restaurant_path(restaurant) %>"><%= restaurant.name %></a></h4>
         <div class="fixed"></div>
         <p>Delivery time: <%= restaurant.deliveryTime %> mins</p>
-        <p>Cuisines: <%= restaurant.tags %></p>
+        <p class="<%= restaurant.tags %>">Cuisines: <%= restaurant.tags %></p>
       </div>
     </div>
 <% end %>
 
+<div class="lightBox">
+  <h2>Notify me</h2>
+  <p>We are currently testing this feature. We will let you know as soon as it is live. Leave your email and we will notify you once it is up.</p>
+  <form>
+    <%= text_field_tag :email, params[:email], :placeholder => "Enter your email..." %>
+    <%= button_tag "Notify Me", :name => nil %>
+  </form>
+</div>
 
 <!--<%= link_to 'New Restaurant', new_restaurant_path %>-->
+
+<% content_for :javascript do %>
+<script src="assets/jquery.lightbox_me.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("ul#cuisineFilterList a").click(function(event){
+      event.preventDefault();
+      $("div.lightBox").lightbox_me({
+        centered: true
+      });
+    });
+
+  });
+  selected
+</script>
+<%end%>
