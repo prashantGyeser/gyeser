@@ -30,7 +30,7 @@
 <% end %>
 
 <div class="lightBox">
-  <h2>Notify me</h2>
+  <h2>Notify Me</h2>
   <p>We are currently testing this feature. We will let you know as soon as it is live. Leave your email and we will notify you once it is up.</p>
   <form>
     <%= text_field_tag :email, params[:email], :placeholder => "Enter your email..." %>
@@ -41,12 +41,12 @@
 <!--<%= link_to 'New Restaurant', new_restaurant_path %>-->
 
 <% content_for :javascript do %>
-<%= javascript_include_tag "jquery.lightbox_me" %>
+<script src="assets/jquery.lightbox_me.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
+    $("div.lightBox").hide();
     $("ul#cuisineFilterList a").click(function(event){
       event.preventDefault();
-      mixpanel.track("Filter link clicked");
       $("div.lightBox").lightbox_me({
         centered: true
       });
