@@ -853,9 +853,16 @@ Restaurant details page*/
 	font-weight: bold;
 	margin: 20px 0 0;
 }
-.foodMenu .menuItemPrice
+.menuItemPrice
 {
 	float: right;
+	font-weight: bold;
+}
+.currencySymbol
+{
+	float: right;
+	font-weight: bold;
+	margin-right: 5px;
 }
 .foodMenu .menuItemDescription
 {
@@ -882,6 +889,18 @@ Restaurant details page*/
 {
 	margin: 0;
 }
+.cart UL
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.cart UL LI
+{
+	border-bottom: 1px solid #DBD9D9;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
 .cart .reciptPrice
 {
 	float: right;
@@ -890,11 +909,6 @@ Restaurant details page*/
 .cart .numberOfItemsInRecipt
 {
 	font-weight: bold;
-}
-.cart P
-{
-	border-bottom: 1px solid #DBD9D9;
-	padding-bottom: 10px;
 }
 .cart .reciptTotal
 {

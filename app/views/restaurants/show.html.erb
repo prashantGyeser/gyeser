@@ -11,24 +11,47 @@
   <div class="foodMenu">
     <h3>Appetizers</h3>
     <% @menu_items.each do |menu_item| %>
-      <p class="menuItemTitle"><%= menu_item.name %> <span class="menuItemPrice">Rs. <%= menu_item.price %></span></p>
+      <p class="menuItemTitle"><%= menu_item.name %> <span class="menuItemPrice"><%= menu_item.price %></span><span class="currencySymbol">Rs. </span></p>
       <p class="menuItemDescription">
         <%= menu_item.description %>
       </p>  
-      <a href="#" class="large blue awesome">Add to cart</a>
+      <a href="#" class="large blue awesome" id="<%=menu_item.id%>">Add to cart</a>
     <% end %>
   </div>
 
 </div>
 <div class="cart">
   <h2>Items in cart</h2>
-  <p><span class="numberOfItemsInRecipt">4</span> Artichoke Spinach Dip <span class="reciptPrice">Rs. 500</span></p>
-  <p><span class="numberOfItemsInRecipt">2</span> Crakin Burger <span class="reciptPrice">Rs. 500</span></p>
-  <h4 class="reciptTotal">Total: Rs. 1000</h4>
+  <ul id="itemsInCart">
+    
+  </ul>
+  <h4 class="reciptTotal">Total: Rs. <span id="reciptTotalValue">0</span></h4>
   <a href="#" class="large orange awesome">Checkout now</a>
 </div>
 
+<% content_for :javascript do %>
+<script type="text/javascript">
 
+  $("a.blue").click(function(event){
+    var id;
+    var title;
+    var total=0;
+    var price = 0;
+    id = $(this).attr('id');
+    event.preventDefault();
+    title = $(this).prevAll("p.menuItemTitle");
+    price = parseFloat(title.find("span.menuItemPrice").text());
+    total = parseFloat($("span#reciptTotalValue").text());
+    title = title.html();
+    $("#itemsInCart").append("<li>"+title+"</li>");
+    total = total + price;
+    $("span#reciptTotalValue").text(total.toFixed(2));
+    
+  })
+</script>
+  
+
+<% end %>
 
 <!--<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> | -->
 <!-- <%= link_to 'Back', restaurants_path %> -->
