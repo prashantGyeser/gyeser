@@ -413,6 +413,21 @@ P
 	margin-top: 10px;
 }
 /*==========================================================================
+Error styling  */
+#error_explanation
+{
+  background: #ffe1dd;
+  color: #ff1e00;
+  border-top: 2px solid #ff1e00;
+  border-bottom: 2px solid #ff1e00;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+#error_explanation li
+{
+  margin-bottom: 10px;
+}
+/*==========================================================================
 Lightbox - Taken from http://buckwilson.me/lightboxme */
 .lightBox
 {
