@@ -11,7 +11,9 @@
   <div class="foodMenu">
     <h3>Appetizers</h3>
     <% @menu_items.each do |menu_item| %>
-      <p class="menuItemTitle"><%= menu_item.name %> <span class="menuItemPrice"><%= menu_item.price %></span><span class="currencySymbol">Rs. </span></p>
+      <p class="menuItemTitle"><%= menu_item.name %> <span class="menuItemPrice"><%= sprintf("%0.02f",
+                                                                                             menu_item.price)
+      %></span><span class="currencySymbol">Rs. </span></p>
       <p class="menuItemDescription">
         <%= menu_item.description %>
       </p>  
