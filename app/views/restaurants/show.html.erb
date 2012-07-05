@@ -58,10 +58,14 @@
 			$("a#checkout").click(function(event){
 				event.preventDefault();
 				data = "test";
-				$.post('/line_items',{ menu_item_id:1, menu_item_id:2, cart_id:1} );
+				$.post('/line_items',{ menu_item_id:1},function(){
+					alert("Hello");
+				});
+
 			});
 	  });
   </script>
+
 
 <% end %>
 

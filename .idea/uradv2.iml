@@ -23,6 +23,7 @@
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v3.2.6, RVM: ruby-1.9.3-p194 [uradV2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activeresource (v3.2.6, RVM: ruby-1.9.3-p194 [uradV2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v3.2.6, RVM: ruby-1.9.3-p194 [uradV2]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="annotate (vbef0c4, RVM: ruby-1.9.3-p194 [uradV2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v3.0.2, RVM: ruby-1.9.3-p194 [uradV2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.0.0, RVM: ruby-1.9.3-p194 [uradV2]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.1.4, RVM: ruby-1.9.3-p194 [uradV2]) [gem]" level="application" />
