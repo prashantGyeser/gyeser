@@ -43,7 +43,7 @@ class LineItemsController < ApplicationController
 		@cart = current_cart
 		menu_item = MenuItem.find(params[:menu_item_id])
 		@line_item = @cart.line_items.build( menu_item: menu_item)
-		@line_item = @cart.line_items.build(:product => product)
+
 
     respond_to do |format|
       if @line_item.save

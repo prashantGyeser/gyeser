@@ -10,7 +10,7 @@
 #
 
 class LineItem < ActiveRecord::Base
-  attr_accessible :cart_id, :menu_item_id
+  attr_accessible :cart_id, :menu_item_id, :menu_item
 	belongs_to :menu_item
 	belongs_to :cart
 end
