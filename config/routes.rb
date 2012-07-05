@@ -1,4 +1,8 @@
 Uradv2::Application.routes.draw do
+  resources :line_items
+
+  resources :carts
+
   resources :menu_items
 
   resources :restaurants

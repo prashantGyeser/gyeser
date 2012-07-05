@@ -427,6 +427,10 @@ Error styling  */
 {
   margin-bottom: 10px;
 }
+.field_with_errors input
+{
+  background: #ffe1dd;
+}
 /*==========================================================================
 Lightbox - Taken from http://buckwilson.me/lightboxme */
 .lightBox

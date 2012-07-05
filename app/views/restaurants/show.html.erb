@@ -16,7 +16,8 @@
       %></span><span class="currencySymbol">Rs. </span></p>
       <p class="menuItemDescription">
         <%= menu_item.description %>
-      </p>  
+      </p>
+		  <%= hidden_field(:menu, :menu_item)%>
       <a href="#" class="large blue awesome" id="<%=menu_item.id%>">Add to cart</a>
     <% end %>
   </div>
@@ -28,7 +29,7 @@
     
   </ul>
   <h4 class="reciptTotal">Total: Rs. <span id="reciptTotalValue">0</span></h4>
-  <a href="#" class="large orange awesome">Checkout now</a>
+  <a href="#" class="large orange awesome" id="checkout">Checkout now</a>
 </div>
 
 <% content_for :javascript do %>
@@ -51,7 +52,16 @@
     
   })
 </script>
-  
+
+  <script type="text/javascript">
+	  $(document).ready(function(){
+			$("a#checkout").click(function(event){
+				event.preventDefault();
+				data = "test";
+				$.post('/line_items',{ menu_item_id:1, menu_item_id:2, cart_id:1} );
+			});
+	  });
+  </script>
 
 <% end %>
 
