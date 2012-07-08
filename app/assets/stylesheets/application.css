@@ -1126,6 +1126,13 @@ Restaurant details page*/
 {
 	float: right;
 }
+.cart UL LI .cart_quantity_input
+{
+  width: 20px;
+  border: 1px solid #b9b9b9;
+  padding: 5px;
+  margin-right: 10px;
+}
 /*==========================================================================
 Checkout form*/
 .checkoutForm INPUT

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="restaurantDetailsSummary">
-  <img src="<%= @restaurant.detailsImageURL%>">
+  <!--<img src="<%= @restaurant.detailsImageURL%>">-->
   <h2><%= @restaurant.name %></h2>
   <p><%= @restaurant.tags %></p>
   <div class="clearfix"></div>
@@ -17,7 +17,7 @@
       <p class="menuItemDescription">
         <%= menu_item.description %>
       </p>
-		  <%= hidden_field(:menu, :menu_item)%>
+		  <%= hidden_field(menu_item.id, menu_item.id, value: menu_item.id)%>
       <a href="#" class="large blue awesome" id="<%=menu_item.id%>">Add to cart</a>
     <% end %>
   </div>
@@ -26,10 +26,12 @@
 <div class="cart">
   <h2>Items in cart</h2>
   <ul id="itemsInCart">
-    
   </ul>
+  <%= hidden_field("cart_id", 1, value: 1, id: "cart_id_from_server")%>
   <h4 class="reciptTotal">Total: Rs. <span id="reciptTotalValue">0</span></h4>
   <a href="#" class="large orange awesome" id="checkout">Checkout now</a>
+
+  <div id="result"></div>
 </div>
 
 <% content_for :javascript do %>
@@ -38,15 +40,17 @@
   $("a.blue").click(function(event){
     var id;
     var title;
+	  var item_id;
     var total=0;
     var price = 0;
     id = $(this).attr('id');
     event.preventDefault();
     title = $(this).prevAll("p.menuItemTitle");
+	  item_id = $(this).prevAll("input:hidden").val();
     price = parseFloat(title.find("span.menuItemPrice").text());
     total = parseFloat($("span#reciptTotalValue").text());
     title = title.html();
-    $("#itemsInCart").append("<li>"+title+"</li>");
+    $("#itemsInCart").append('<li>'+'<input type="text" class="cart_quantity_input" value=1>' + title + '<input value='+item_id+ ' type="hidden">' + '</li>');
     total = total + price;
     $("span#reciptTotalValue").text(total.toFixed(2));
     
@@ -56,10 +60,19 @@
   <script type="text/javascript">
 	  $(document).ready(function(){
 			$("a#checkout").click(function(event){
+				var items_in_cart_list
 				event.preventDefault();
-				data = "test";
-				$.post('/line_items',{ menu_item_id:1},function(){
-					alert("Hello");
+				$("ul#itemsInCart li").each(function(index){
+					var hidden_value = $('input[type="hidden"]', this).val();
+					var quantity = $('input.cart_quantity_input', this).val();
+					//alert("Index:"+ index+ ":this:" + $(this).text());
+					//alert("Hidden Value:"+hidden_value)
+					//alert("Quantity" + quantity);
+				});
+				$.each([1,2],function(){
+					$.post('/line_items',{ menu_item_id:1},function(){
+						$('#result').html(data);
+					});
 				});
 
 			});

@@ -42,7 +42,7 @@ class LineItemsController < ApplicationController
   def create
 		@cart = current_cart
 		menu_item = MenuItem.find(params[:menu_item_id])
-		@line_item = @cart.line_items.build( menu_item: menu_item)
+		@line_item = @cart.add_menu_item(menu_item.id)
 
 
     respond_to do |format|
