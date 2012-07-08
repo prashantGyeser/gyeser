@@ -7,6 +7,7 @@ gem 'rails', '3.2.6'
 
 gem 'pg'
 gem 'geocoder'
+gem 'hirb'
 
 # Annotate gem.
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'

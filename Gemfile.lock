@@ -50,6 +50,7 @@ GEM
       multi_json (~> 1.0)
     geocoder (1.1.2)
     hike (1.2.1)
+    hirb (0.7.0)
     i18n (0.6.0)
     journey (1.0.4)
     jquery-rails (2.0.2)
@@ -133,6 +134,7 @@ DEPENDENCIES
   annotate!
   coffee-rails (~> 3.2.1)
   geocoder
+  hirb
   jquery-rails
   pg
   rails (= 3.2.6)
