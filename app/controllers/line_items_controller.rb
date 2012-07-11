@@ -43,6 +43,8 @@ class LineItemsController < ApplicationController
 		puts "The cart id is:"
 		puts params[:cart_id]
 		@cart = current_cart
+		logger.debug "The cart id is:"
+		logger.debug @cart
 		menu_item = MenuItem.find(params[:menu_item_id])
 		@line_item = @cart.add_menu_item(menu_item.id)
 
