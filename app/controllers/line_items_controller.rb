@@ -40,15 +40,9 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-		logger.debug "The param is:"
-		Rails.logger.info("PARAMS: #{params.inspect}")
 		@cart = current_cart
-		logger.debug "The cart id is:"
-		logger.debug @cart.id
 		@menu_items = []
 		@failed = []
-
-		#Rails.logger.info("PARAMS: #{params.inspect}")
 
 		if params[:menu_item_id].is_a?(Hash)
 			@menu_item_id_hashes = params[:menu_item_id].values
@@ -58,28 +52,17 @@ class LineItemsController < ApplicationController
 		if params[:menu_item_quantity].is_a?(Hash)
 			@menu_item_quantity_hashes = params[:menu_item_quantity].values
 		else
-			logger.debug "It is getting into the else statement for the quantity hash"
 			@menu_item_quantity_hashes = params[:menu_item_quantity]
 		end
 		totalNumberOfItems = @menu_item_quantity_hashes.count
 		for i in 0..(totalNumberOfItems-1)
 			@line_item = LineItem.new()
-			logger.debug "Item counter: #{i}"
 			menu_item_id_hash = @menu_item_id_hashes[i]
-			logger.debug "Menu Item Id Hashes in the loop: #{menu_item_id_hash}"
-			logger.debug "Menu Item Id in loop before finding the menuitem: #{menu_item_id_hash[:menu_item_id]}"
 			menu_item = MenuItem.find(menu_item_id_hash[:menu_item_id])
 			quantity = @menu_item_quantity_hashes[i]
-			logger.debug "Menu Item quantity in the loop: #{quantity}"
-			logger.debug "Menu Item in the for loop: #{menu_item_id_hash[:menu_item_id]}"
-			#@line_item = @cart.add_menu_item(menu_item,quantity)
 			@line_item = @cart.line_items.build(menu_item_id: menu_item)
-			logger.debug "Ok, I think it created the line item:#{@line_item}"
 			@line_item.save
 		end
-		logger.debug "Total Items: #{totalNumberOfItems}"
-		logger.debug "Menu Item Quantity Hashes: #{@menu_item_quantity_hashes}"
-		logger.debug "Menu Item Id hashes Hashes: #{@menu_item_id_hashes}"
 
     respond_to do |format|
       if @line_item.save

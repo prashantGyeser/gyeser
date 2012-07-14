@@ -26,28 +26,6 @@
 <div class="cart">
   <h2>Items in cart</h2>
   <ul id="itemsInCart">
-    <!-- Todo: Delete this -->
-    <li>
-      <input class="cart_quantity_input" type="text" value="1">
-      Spinach Lasagna
-      <span class="menuItemPrice">500.00</span>
-      <span class="currencySymbol">Rs. </span>
-      <input type="hidden" value="1">
-    </li>
-    <li>
-      <input class="cart_quantity_input" type="text" value="1">
-      Chopped Salad
-      <span class="menuItemPrice">150.00</span>
-      <span class="currencySymbol">Rs. </span>
-      <input type="hidden" value="2">
-    </li>
-    <li>
-      <input class="cart_quantity_input" type="text" value="1">
-      Nachos
-      <span class="menuItemPrice">400.00</span>
-      <span class="currencySymbol">Rs. </span>
-      <input type="hidden" value="3">
-    </li>
   </ul>
   <%= hidden_field("cart_id", 1, value: 0, id: "cart_id_from_server")%>
   <h4 class="reciptTotal">Total: Rs. <span id="reciptTotalValue">0</span></h4>
@@ -111,7 +89,6 @@
 				});
 				$.post('/line_items',{ menu_item_id: items_in_cart_list, menu_item_quantity: quantities },function(data){
 					cart_id_from_server = data;
-					$("#result").append('<li>'+ data + '</li>');
 				});
 				//$.ajax({
 					//type:"POST",
