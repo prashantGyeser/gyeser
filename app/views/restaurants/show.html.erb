@@ -26,6 +26,28 @@
 <div class="cart">
   <h2>Items in cart</h2>
   <ul id="itemsInCart">
+    <!-- Todo: Delete this -->
+    <li>
+      <input class="cart_quantity_input" type="text" value="1">
+      Spinach Lasagna
+      <span class="menuItemPrice">500.00</span>
+      <span class="currencySymbol">Rs. </span>
+      <input type="hidden" value="1">
+    </li>
+    <li>
+      <input class="cart_quantity_input" type="text" value="1">
+      Chopped Salad
+      <span class="menuItemPrice">150.00</span>
+      <span class="currencySymbol">Rs. </span>
+      <input type="hidden" value="2">
+    </li>
+    <li>
+      <input class="cart_quantity_input" type="text" value="1">
+      Nachos
+      <span class="menuItemPrice">400.00</span>
+      <span class="currencySymbol">Rs. </span>
+      <input type="hidden" value="3">
+    </li>
   </ul>
   <%= hidden_field("cart_id", 1, value: 0, id: "cart_id_from_server")%>
   <h4 class="reciptTotal">Total: Rs. <span id="reciptTotalValue">0</span></h4>
@@ -64,27 +86,39 @@
   <script type="text/javascript">
 	  $(document).ready(function(){
 			$("a#checkout").click(function(event){
-				var items_in_cart_list;
+				var items_in_cart_list = new Array();
 				var cart_id_from_server= $('#cart_id_from_server').val();
+				var quantities = new Array();
 				event.preventDefault();
 				$("ul#itemsInCart li").each(function(index){
-					var item_id = $('input[type="hidden"]', this).val();
+					var item_id = {"menu_item_id": $('input[type="hidden"]', this).val()};
 					var quantity = $('input.cart_quantity_input', this).val();
-					 //$.post('/line_items',{ menu_item_id: item_id, cart_id:cart_id_from_server},function(data){
+					items_in_cart_list.push(item_id);
+					quantities.push(quantity);
+					 //$.post('/line_items',{ menu_item_id: item_id, menu_item_id: item_id},function(data){
 						//cart_id_from_server = data;
 						//$("#result").append('<li>'+ data + '</li>');
 					//});
 
-					$.ajax({
-						url: '/line_items',
-						success: function(data){
-							$('#result').html(data);
-							alert ("Load was performed and the return data was"+data);
-						}
-					})
+					//$.ajax({
+						//url: '/line_items',
+					//success: function(data){
+					//$('#result').html(data);
+					//alert ("Load was performed and the return data was"+data);
+					//}
+					//})
 
 				});
-
+				$.post('/line_items',{ menu_item_id: items_in_cart_list, menu_item_quantity: quantities },function(data){
+					cart_id_from_server = data;
+					$("#result").append('<li>'+ data + '</li>');
+				});
+				//$.ajax({
+					//type:"POST",
+					//url:('/line_items'),
+					//data:(items_in_cart_list),
+					//dataType: "script"
+				//});
 
 			});
 
