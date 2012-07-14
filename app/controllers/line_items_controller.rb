@@ -61,6 +61,7 @@ class LineItemsController < ApplicationController
 			menu_item = MenuItem.find(menu_item_id_hash[:menu_item_id])
 			quantity = @menu_item_quantity_hashes[i]
 			@line_item = @cart.line_items.build(menu_item_id: menu_item)
+			@line_item.quantity = quantity
 			@line_item.save
 		end
 

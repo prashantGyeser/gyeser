@@ -39,7 +39,7 @@
 <% content_for :javascript do %>
 <%= javascript_include_tag "json2" %>
 <script type="text/javascript">
-
+	// Todo: Need to add code so that the user cannot click on the Add to Cart button more than once.
   $("a.blue").click(function(event){
     var id;
     var title;
@@ -87,6 +87,7 @@
 					//})
 
 				});
+				// Todo: Need to add code so that the user cannot click on the checkout button more than once.
 				$.post('/line_items',{ menu_item_id: items_in_cart_list, menu_item_quantity: quantities },function(data){
 					cart_id_from_server = data;
 				});
