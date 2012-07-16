@@ -67,6 +67,10 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
+        if (should new page be shown check)
+          flash.now[:error] = "K it is passing the value"
+        end
+
 				format.html { render text: @cart.id }
         # format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
         format.json { render json: @line_item, status: :created, location: @line_item }
