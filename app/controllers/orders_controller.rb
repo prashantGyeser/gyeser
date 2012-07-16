@@ -26,12 +26,16 @@ class OrdersController < ApplicationController
   def new
 		logger.debug "The value in the cart in the order controller is:#{params[:cart_id]}"
 		Rails.logger.info("PARAMS: #{params.inspect}")
-		#if @cart.line_items.empty?
+    logger.debug("The direct param value is:#{params}")
+    logger.debug params
+    @cart = Cart.find(params[:cart_id])
+    logger.debug "Number of items in the cart=#{@cart.line_items.count}"
+		if @cart.line_items.empty?
 			# Todo: Right now this redirect just sends the user to the restaurant list. It does not redirect them based on the search term they entered. This needs to be fixed
-		#	redirect_to restaurants_url, :notice => "Your cart is empty"
-			#logger.debug "Restaurant path:#{restaurant_url}"
-		#	return false
-		#end
+			redirect_to restaurants_url, :notice => "Your cart is empty"
+			logger.debug "Restaurant path:#{restaurant_url}"
+			return false
+		end
 		cart = [params[:cart_id]]
 		logger.debug "The cart id in the order controller is:#{cart}"
     @order = Order.new
