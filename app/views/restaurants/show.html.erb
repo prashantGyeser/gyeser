@@ -63,6 +63,7 @@
 
   <script type="text/javascript">
 	  $(document).ready(function(){
+		  // Todo: Add a way to clear the cart or individually remove items from the cart.
 			$("a#checkout").click(function(event){
 				var items_in_cart_list = new Array();
 				var cart_id_from_server= $('#cart_id_from_server').val();
@@ -89,7 +90,10 @@
 				});
 				// Todo: Need to add code so that the user cannot click on the checkout button more than once.
 				$.post('/line_items',{ menu_item_id: items_in_cart_list, menu_item_quantity: quantities },function(data){
-					cart_id_from_server = data;
+					cart_id_from_server = data
+					// Todo: Change hard coded URL to a rails herlper
+					document.location = "/orders/new"+'?'+data;
+					//window.location.search = "cart_id:"+data;
 				});
 				//$.ajax({
 					//type:"POST",

@@ -1,7 +1,7 @@
 module ApplicationHelper
 
 	# Return a title on every page
-	base_title = "Urad Store"
+	base_title = "Gyeser"
 	if @title.nil?
 		base_title
 	else

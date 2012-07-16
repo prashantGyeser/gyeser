@@ -7,6 +7,8 @@
 #  cart_id      :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  order_id     :integer
+#  quantity     :integer          default(1)
 #
 
 require 'spec_helper'
