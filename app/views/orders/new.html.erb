@@ -1,5 +1,17 @@
-<h1>New order</h1>
+<div class="foodMenu">
+	<h1>New order</h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to 'Back', orders_path %>
+	<%= link_to 'Back', orders_path %>
+</div>
+
+<div class="cart">
+	<%= @cart.line_items.each do |line_item| %>
+		<ul id="itemsInCart">
+			<li><%= line_item.menu_item.name%></li>
+  		</ul>
+	<% end %>
+
+</div>
+

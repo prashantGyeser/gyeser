@@ -54,13 +54,19 @@ class LineItemsController < ApplicationController
 		else
 			@menu_item_quantity_hashes = params[:menu_item_quantity]
 		end
+
+    logger.debug "The menu items are:#{@menu_item_id_hashes}"
+
 		totalNumberOfItems = @menu_item_quantity_hashes.count
 		for i in 0..(totalNumberOfItems-1)
 			@line_item = LineItem.new()
-			menu_item_id_hash = @menu_item_id_hashes[i]
-			menu_item = MenuItem.find(menu_item_id_hash[:menu_item_id])
+			menu_item_id = @menu_item_id_hashes[i]
+      logger.debug "The menu id before finding the item V2 is:#{menu_item_id[:menu_item_id]}" 
+			menu_item = MenuItem.find(menu_item_id[:menu_item_id])
+      logger.debug "The menu item is:#{menu_item}" 
 			quantity = @menu_item_quantity_hashes[i]
-			@line_item = @cart.line_items.build(menu_item_id: menu_item)
+			@line_item = @cart.line_items.build(menu_item_id: menu_item.id)
+      logger.debug "The menu item id after line item created is:#{menu_item.id}" 
 			@line_item.quantity = quantity
 			@line_item.save
 		end
