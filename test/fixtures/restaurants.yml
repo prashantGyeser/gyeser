@@ -13,6 +13,8 @@
 #  deliveryTime    :integer
 #  longitude       :float
 #  latitude        :float
+#  phone_number    :string(255)
+#  email_id        :string(255)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

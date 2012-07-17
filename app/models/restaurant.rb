@@ -13,10 +13,12 @@
 #  deliveryTime    :integer
 #  longitude       :float
 #  latitude        :float
+#  phone_number    :string(255)
+#  email_id        :string(255)
 #
 
 class Restaurant < ActiveRecord::Base
-  attr_accessible :address, :detailsImageURL, :imageURL, :name, :tags, :deliveryTime
+  attr_accessible :address, :detailsImageURL, :imageURL, :name, :tags, :deliveryTime, :email_id, :phone_number
 	validates :name, :address, :tags, :deliveryTime, :presence => true
 	validates :name, :uniqueness => true
   has_many :menu_items
