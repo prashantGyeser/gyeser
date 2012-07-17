@@ -432,6 +432,15 @@ Error styling  */
   background: #ffe1dd;
 }
 /*==========================================================================
+Notice styling */
+#notice
+{
+	/*background: #bbffcd;
+	color: #004412; */
+	padding: 20px;
+	text-align: center;
+}
+/*==========================================================================
 Lightbox - Taken from http://buckwilson.me/lightboxme */
 .lightBox
 {
@@ -1135,7 +1144,27 @@ Restaurant details page*/
 }
 /*==========================================================================
 Checkout form*/
-.checkoutForm INPUT
+.checkoutForm
+{
+}
+.checkoutForm INPUT[type="text"]
+{
+	float: left;
+	width: 47%;
+	height: 20px;
+	margin-bottom: 20px;
+	padding: 10px 5px;
+	float: left;
+	border: 0;
+	background: #EEE;
+	-moz-border-radius: 3px 0 0 3px;
+	-webkit-border-radius: 3px 0 0 3px;
+	border-radius: 3px 0 0 3px;
+	-moz-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+	-webkit-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+	box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8);
+}
+.checkoutForm TEXTAREA
 {
 	float: left;
 	width: 47%;
@@ -1181,6 +1210,38 @@ Checkout form*/
 	color: #999;
 	font-weight: normal;
 	font-style: italic;
+}
+.checkoutForm TEXTAREA:focus
+{
+	outline: 0;
+	background: #FFF;
+	-moz-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+	-webkit-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+	box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8);
+}
+.checkoutForm TEXTAREA::-webkit-input-placeholder
+{
+	color: #999;
+	font-weight: normal;
+	font-style: italic;
+}
+.checkoutForm TEXTAREA:-moz-placeholder
+{
+	color: #999;
+	font-weight: normal;
+	font-style: italic;
+}
+.checkoutForm TEXTAREA:-ms-input-placeholder
+{
+	color: #999;
+	font-weight: normal;
+	font-style: italic;
+}
+/*==========================================================================
+Thank you for the order page */
+.thankYou
+{
+	text-align: center;
 }
 /*==========================================================================
 ==|== media queries ======================================================

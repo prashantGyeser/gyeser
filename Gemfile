@@ -14,6 +14,8 @@ gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 
 group :development do 
 	gem 'rspec-rails'
+	gem 'guard-livereload'
+	gem 'libnotify'
 end
 
 group :test do
