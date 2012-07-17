@@ -7,11 +7,15 @@
 </div>
 
 <div class="cart">
-	<%= @cart.line_items.each do |line_item| %>
-		<ul id="itemsInCart">
-			<li><%= line_item.menu_item.name%></li>
-  		</ul>
-	<% end %>
+	<h2>Items you are buying</h2>
+	<ul id="itemsInCart">
+		<% @cart.line_items.each do |line_item| %>
+			<li><%= line_item.menu_item.name%></li>  		
+		<% end %>
+	</ul>
+	<h4 class="reciptTotal">Total: <span id="reciptTotalValue"><%= @cart.total %></span></h4>
+	
+	
 
 </div>
 

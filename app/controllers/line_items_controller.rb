@@ -71,6 +71,16 @@ class LineItemsController < ApplicationController
 			@line_item.save
 		end
 
+    # Storing the total for the line items in the cart
+    cart_total = 0
+    @cart.line_items.each do |line_item|
+      cart_total = cart_total + line_item.menu_item.price
+    end
+    logger.debug "Cart total:#{cart_total}"
+    @cart.total = cart_total
+    @cart.save
+    logger.debug "Cart total = #{@cart.total}"
+
     respond_to do |format|
       if @line_item.save
 				format.html { render text: @cart.id }
