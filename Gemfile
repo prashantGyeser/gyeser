@@ -9,8 +9,17 @@ gem 'pg'
 gem 'geocoder'
 gem 'hirb'
 
+# Twilio gems
+gem 'twilio-ruby'
+gem 'trails'
+gem 'twilio-rb'
 # Annotate gem.
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+
+# Tropo gem
+gem 'tropo-webapi-ruby'
+
+# Nexmo
 
 group :development do 
 	gem 'rspec-rails'

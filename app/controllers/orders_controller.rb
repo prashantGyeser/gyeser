@@ -95,6 +95,13 @@ class OrdersController < ApplicationController
         restaurant = cart.line_items.first.menu_item.restaurant
         NotificationMailer.restaurant_order(restaurant, cart).deliver
 
+        # Sending SMS
+        require 'twilio-ruby'
+        @account_sid = 'ACafe3308aad17f597910e9f6f8868e7af'
+        @auth_token = '933e2a551fa2642dd4401f817270016a'
+        @client = Twilio::REST::Client.new(@account_sid, @auth_token)
+        @client.account.sms.messages.create( :from => '+14155992671', :to => '+919840432883',:body => 'Hey there!')
+
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { head :no_content }
       else
