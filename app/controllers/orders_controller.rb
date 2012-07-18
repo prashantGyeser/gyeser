@@ -93,7 +93,7 @@ class OrdersController < ApplicationController
         logger.debug "The order cart id is: #{@order.cart_id}"
         logger.debug "Cart in the update method from the order is: #{cart.id}"
         restaurant = cart.line_items.first.menu_item.restaurant
-        NotificationMailer.restaurant_order(restaurant).deliver
+        NotificationMailer.restaurant_order(restaurant, cart).deliver
 
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { head :no_content }
