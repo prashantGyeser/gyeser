@@ -18,3 +18,14 @@
 
 </div>
 
+<% content_for :javascript do %>
+	<script type="text/javascript">
+		$.document.jQuery(document).ready(function() {
+			test = "Hello"
+			// Stuff to do as soon as the DOM is ready. Use $() w/o colliding with other libs;
+			$("#order_cart_id").val("test");
+		});
+		
+	</script>
+<% end %>
+

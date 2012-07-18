@@ -8,9 +8,10 @@
 #  email      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  cart_id    :integer
 #
 
 class Order < ActiveRecord::Base
-  attr_accessible :address, :email, :name
+  attr_accessible :address, :email, :name, :cart_id
 	has_one  :cart
 end

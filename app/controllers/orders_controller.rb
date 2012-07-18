@@ -39,7 +39,14 @@ class OrdersController < ApplicationController
 		cart = [params[:cart_id]]
 		logger.debug "The cart id in the order controller is:#{cart}"
     @order = Order.new
+    logger.debug "The order id after the order.new is: #{@order.id}"
 
+    @order.cart_id = cart
+    logger.debug "The order id after the order.new is: #{@order.cart_id}"    
+    logger.debug "It gets to the new method"
+
+    @order.save
+    logger.debug "The order cart id is: #{@order.cart_id}"
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @order }
@@ -55,9 +62,12 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
+    logger.debug "It gets to the create method"
+    logger.debug "The cart value in the order cretae method is :#{@cart}"
 
     respond_to do |format|
       if @order.save
+        #notification_mailer.restaurant_order(restaurant)
         format.html { redirect_to @order, notice: 'Order was successfully placed.' }
         format.json { render json: @order, status: :created, location: @order }
       else
@@ -71,9 +81,20 @@ class OrdersController < ApplicationController
   # PUT /orders/1.json
   def update
     @order = Order.find(params[:id])
+    logger.debug "It gets to the update method and the cart id is:#{params[:cart_id]}"
+    #@cart = Cart.find(params[:cart_id])
+    #logger.debug "Cart in the update method: #{@cart.id}"
 
     respond_to do |format|
       if @order.update_attributes(params[:order])
+        
+        # Sending the orders to the restaurant email id
+        cart = Cart.find(@order.cart_id)
+        logger.debug "The order cart id is: #{@order.cart_id}"
+        logger.debug "Cart in the update method from the order is: #{cart.id}"
+        restaurant = cart.line_items.first.menu_item.restaurant
+        NotificationMailer.restaurant_order(restaurant).deliver
+
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { head :no_content }
       else
