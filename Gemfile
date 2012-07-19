@@ -20,6 +20,10 @@ gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 gem 'tropo-webapi-ruby'
 
 # Nexmo
+gem 'nexmo'
+
+# Gems required for Exotel 
+gem 'typhoeus'
 
 group :development do 
 	gem 'rspec-rails'
