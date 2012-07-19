@@ -107,6 +107,8 @@ class OrdersController < ApplicationController
 
         nexmo =  Nexmo::Client.new('3e4821cd', '5120efaa')
 
+        
+
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { head :no_content }
       else
