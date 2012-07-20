@@ -28,6 +28,9 @@ gem 'typhoeus'
 # Authentication
 gem "devise"
 
+# This should go into the test group, but for now I am installing it for all the environments
+gem 'factory_girl_rails'
+
 group :development do 
 	gem 'rspec'
 	gem "cucumber"
