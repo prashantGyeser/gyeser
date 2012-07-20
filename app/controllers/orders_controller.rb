@@ -107,16 +107,16 @@ class OrdersController < ApplicationController
         #nexmo =  Nexmo::Client.new('3e4821cd', '5120efaa')
 
         # Sending SMS using Exotel
-        require 'rubygems'
-        require 'typhoeus'
-        require 'json'
+        #require 'rubygems'
+        #require 'typhoeus'
+        #require 'json'
 
         # Exotel account settings
-        exotel_sid = 'gyeser'
-        exotel_token = '92e34f5ef963ac94ec61f4337ebe75a0019a237e'
-        URL = "https://#{exotel_sid}:#{exotel_token}@twilix.exotel.in/v1/Accounts/#{exotel_sid}/Sms/send"
+        #exotel_sid = 'gyeser'
+        #exotel_token = '92e34f5ef963ac94ec61f4337ebe75a0019a237e'
+        #URL = "https://#{exotel_sid}:#{exotel_token}@twilix.exotel.in/v1/Accounts/#{exotel_sid}/Sms/send"
 
-        post_data = {:From => "8808891988", :To => "#{restaurant.phone_number}", :Body => "Akki, the message will be some thing like this, everything after the colon: B1:2,B67:4. Gyeser -- Prashant"}
+        #post_data = {:From => "8808891988", :To => "#{restaurant.phone_number}", :Body => "Akki, the message will be some thing like this, everything after the colon: B1:2,B67:4. Gyeser -- Prashant"}
         #puts "The array is:#{post_data}"
 
         #response = Typhoeus::Request.post(URL,:params => post_data)
@@ -124,26 +124,26 @@ class OrdersController < ApplicationController
 
         # Trying using typheus
         # the request object
-        request = Typhoeus::Request.new(URL,
+        #request = Typhoeus::Request.new(URL,
                         #:ssl_verifypeer => false,
-                        :disable_ssl_peer_verification => true,
-                                        #:body          => "this is a request body",
-                                        :method        => :post,
+         #               :disable_ssl_peer_verification => true,
+          #                              #:body          => "this is a request body",
+           #                             :method        => :post,
                                         #:headers       => {:Accept => "text/html"},
-                                        :verbose     => true, 
-                                        :timeout       => 100000, # milliseconds
-                                        :cache_timeout => 60, # seconds
-                                        :params        => post_data)
-        hydra = Typhoeus::Hydra.new
-        hydra.queue(request)
-        hydra.run
+            #                            :verbose     => true, 
+             #                           :timeout       => 100000, # milliseconds
+              #                          :cache_timeout => 60, # seconds
+               #                         :params        => post_data)
+        #hydra = Typhoeus::Hydra.new
+        #hydra.queue(request)
+        #hydra.run
 
 
 
 
 
         # the response object will be set after the request is run
-        response = request.response
+        #response = request.response
 
         
 
