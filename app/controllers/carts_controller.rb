@@ -1,4 +1,7 @@
 class CartsController < ApplicationController
+
+  before_filter :authenticate_user!, :except => [:new]
+
   # GET /carts
   # GET /carts.json
 	protect_from_forgery
