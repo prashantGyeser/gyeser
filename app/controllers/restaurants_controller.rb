@@ -2,11 +2,12 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
 
-  before_filter :authenticate_user!, :except => [:index, :show]
+  #before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
     if params[:search].present?
-      @restaurants = Restaurant.near(params[:search], 10, :order => :distance)
+      logger.debug "Search params is:#{params[:search]}"
+      @restaurants = Restaurant.near(params[:search], 3, :order => :distance)
     else
       @restaurants = Restaurant.all  
     end

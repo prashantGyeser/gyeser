@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:new]
+  #before_filter :authenticate_user!, :except => [:new]
 
   # GET /carts
   # GET /carts.json
