@@ -17,23 +17,24 @@ gem 'twilio-rb'
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 
 # Tropo gem
-gem 'tropo-webapi-ruby'
+#gem 'tropo-webapi-ruby'
 
 # Nexmo
-gem 'nexmo'
+#gem 'nexmo'
 
 # Gems required for Exotel 
 gem 'typhoeus'
 
+# Authentication
+gem "devise"
+
 group :development do 
-	gem 'rspec-rails'
-	gem 'guard-livereload'
-	gem 'libnotify'
+	gem 'rspec'
+	gem "cucumber"
 end
 
 group :test do
 	gem 'rspec'
-	gem 'webrat'
 end
 
 # Gems used only for assets and not required
