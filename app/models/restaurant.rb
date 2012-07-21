@@ -19,7 +19,7 @@
 
 class Restaurant < ActiveRecord::Base
   attr_accessible :address, :detailsImageURL, :imageURL, :name, :tags, :deliveryTime, :email_id, :phone_number
-	validates :name, :address, :tags, :deliveryTime, :presence => true
+	validates :name, :address, :deliveryTime, :email_id, :phone_number, :presence => true
 	validates :name, :uniqueness => true
   has_many :menu_items
   geocoded_by :address

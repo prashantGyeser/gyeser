@@ -29,6 +29,10 @@ class MenuItemsController < ApplicationController
   def new
     @menu_item = MenuItem.new
 
+    # Getting the restaurant name and id that this item will be assocaited with
+    @restaurant_id = session[:restaurant_id]
+    @restaurant_name = session[:restaurant_name]
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @menu_item }
@@ -47,7 +51,11 @@ class MenuItemsController < ApplicationController
 
     respond_to do |format|
       if @menu_item.save
-        format.html { redirect_to @menu_item, notice: 'Menu item was successfully created.' }
+        # Storing the restaurant name and id in the session variable so that it does not need to be entered everytime when the model is created.
+        session[:restaurant_id] = @menu_item.restaurant_id
+        session[:restaurant_name] = @menu_item.restaurant.name
+
+        format.html { redirect_to new_menu_item_path, notice: 'Menu item was successfully created.' }
         format.json { render json: @menu_item, status: :created, location: @menu_item }
       else
         format.html { render action: "new" }

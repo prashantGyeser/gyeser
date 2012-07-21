@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+ 
+  <div class="field">
+    <%= f.text_field :restaurant_id, :type => "hidden", :value => @restaurant_id %>
+  </div>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -27,11 +30,7 @@
     <%= f.label :category %><br />
     <%= f.text_field :category %>
   </div>
-  <div class="field">
-    <%= f.label :restaurant_id %><br />
-    <%= f.text_field :restaurant_id %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save and create a new menu item", :class => "large awesome blue" %>
   </div>
 <% end %>

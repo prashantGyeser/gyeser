@@ -56,7 +56,10 @@ class RestaurantsController < ApplicationController
 
     respond_to do |format|
       if @restaurant.save
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
+        # Storing the restaurant name and id in the session variable so that it does not need to be entered everytime when the model is created.
+        session[:restaurant_id] = @restaurant.id
+        session[:restaurant_name] = @restaurant.name
+        format.html { redirect_to new_menu_item_path, notice: 'Restaurant was successfully created.' }
         format.json { render json: @restaurant, status: :created, location: @restaurant }
       else
         format.html { render action: "new" }
