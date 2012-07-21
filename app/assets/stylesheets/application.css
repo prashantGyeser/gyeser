@@ -34,8 +34,8 @@ ARTICLE, ASIDE, DETAILS, FIGCAPTION, FIGURE, FOOTER, HEADER, HGROUP, NAV, SECTIO
 AUDIO, CANVAS, VIDEO
 {
 	display: inline-block;
-	=display: inline;
-	=zoom: 1;
+	/*=display: inline;
+	=zoom: 1;*/
 }
 AUDIO:not([controls])
 {
@@ -266,7 +266,7 @@ LABEL
 LEGEND
 {
 	border: 0;
-	=margin-left: -7px;
+	/*=margin-left: -7px;*/
 	padding: 0;
 	white-space: normal;
 }
@@ -280,7 +280,7 @@ BUTTON, INPUT, SELECT, TEXTAREA
 	font-size: 100%;
 	margin: 0;
 	vertical-align: baseline;
-	=vertical-align: middle;
+	/*=vertical-align: middle;*/
 }
 /*
 * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
@@ -298,7 +298,7 @@ BUTTON, INPUT[type="button"], INPUT[type="reset"], INPUT[type="submit"]
 {
 	cursor: pointer;
 	-webkit-appearance: button;
-	=overflow: visible;
+	/*=overflow: visible;*/
 }
 /*
 * Re-set default cursor for disabled elements
@@ -314,8 +314,8 @@ INPUT[type="checkbox"], INPUT[type="radio"]
 {
 	box-sizing: border-box;
 	padding: 0;
-	=width: 13px;
-	=height: 13px;
+	/*=width: 13px;
+	=height: 13px;*/
 }
 INPUT[type="search"]
 {
@@ -1318,7 +1318,7 @@ For image replacement*/
 	background-repeat: no-repeat;
 	text-align: left;
 	direction: ltr;
-	=line-height: 0;
+	/*=line-height: 0;*/
 }
 .ir BR
 {
@@ -1369,7 +1369,7 @@ For image replacement*/
 }
 .clearfix
 {
-	=zoom: 1;
+	/*=zoom: 1;*/
 }
 /*==|== print styles =======================================================
 Print styles.
