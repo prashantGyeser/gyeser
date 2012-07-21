@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
+# Specifying the ruby version for Heroku
+ruby '1.9.3'
+
 gem 'rails', '3.2.6'
+
+gem 'heroku'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -20,9 +25,10 @@ gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 gem 'mechanize'
 gem 'nokogiri'
 
-# Thin server instead of the standard Webrick
-gem 'thin'
-
+# Thin server instead of the standard Webrick on the production server
+group :production do
+  gem 'thin'
+end
 
 # Tropo gem
 #gem 'tropo-webapi-ruby'
