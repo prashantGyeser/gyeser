@@ -62,5 +62,8 @@ module Uradv2
     # Adding this to prevent the precompile error on heroku
     config.assets.initialize_on_precompile = false
 
+    # Adding this becuase a JS file is not added to the precompile so the push to heroku breaks
+    config.assets.precompile += %w( *.js *.css )
+
   end
 end
