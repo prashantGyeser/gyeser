@@ -71,7 +71,7 @@ Uradv2::Application.routes.draw do
 
   # Adding the devise authentication
   authenticated :user do
-    root :to => 'restaurant#new'
+    root :to => 'restaurants#new'
   end
 
   root :to => 'home#index'
