@@ -16,6 +16,14 @@ gem 'twilio-rb'
 # Annotate gem.
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 
+# Gems needed for Ampletrails
+gem 'mechanize'
+gem 'nokogiri'
+
+# Thin server instead of the standard Webrick
+gem 'thin'
+
+
 # Tropo gem
 #gem 'tropo-webapi-ruby'
 

@@ -147,7 +147,12 @@ class OrdersController < ApplicationController
         # the response object will be set after the request is run
         #response = request.response
 
-        
+        # Ampletrails SMS code
+        require 'rubygems'
+        require 'mechanize'
+        require 'nokogiri'
+        require 'net/http'
+        require 'open-uri'
 
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { head :no_content }
