@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, 'Restaurant name' %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
@@ -22,28 +22,31 @@
   <div class="field">
     <%= f.label :tags %><br />
     <%= f.text_field :tags %>
-  </div>
+  </div>  
   <div class="field">
-    <%= f.label :imageURL %><br />
+    <%= f.label :imageURL, 'Search Page Image' %><br />
+    <p class="itemDescription">The image has to be hosted on a site and the URL of the image has to be entered below. </p>
     <%= f.text_field :imageURL %>
   </div>
   <div class="field">
-    <%= f.label :detailsImageURL %><br />
+    <%= f.label :detailsImageURL, 'Restuarant Menu Page Title Image' %><br />
+    <p class="itemDescription">The image has to be hosted on a site and the URL of the image has to be entered below. </p>
     <%= f.text_field :detailsImageURL %>
   </div>
   <div class="field">
-    <%= f.label :deliveryTime %><br />
-    <%= f.text_field :deliveryTime %> mins
+    <%= f.label :deliveryTime, 'Delivery Time in minutes' %><br />
+    <%= f.text_field :deliveryTime %> 
   </div>
   <div class="field">
-    <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_number %> mins
+    <%= f.label :phone_number, 'Mobile Number' %><br />
+    <p class="itemDescription">Just enter the mobile number, do not add 91 or +91 at the front. Orders will be SMSed to this number.</p>
+    <%= f.text_field :phone_number %> 
   </div>
   <div class="field">
     <%= f.label :email_id %><br />
-    <%= f.text_field :email_id %> mins
+    <%= f.text_field :email_id %> 
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create restaurant', :class => 'large blue awesome' %>
   </div>
 <% end %>
