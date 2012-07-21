@@ -58,5 +58,9 @@ module Uradv2
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Adding this to prevent the precompile error on heroku
+    config.assets.initialize_on_precompile = false
+
   end
 end
