@@ -42,16 +42,26 @@ gem 'typhoeus'
 # Authentication
 gem "devise"
 
-# This should go into the test group, but for now I am installing it for all the environments
-gem 'factory_girl_rails'
-
 group :development do 
 	gem 'rspec'
-	gem "cucumber"
+  gem 'capybara'
+  gem 'launchy'
+  gem 'guard-rspec'
+  gem 'libnotify'
+  gem 'guard-livereload'
+  gem 'guard-annotate'
+  gem 'guard-bundler'
+  gem 'rspec-rails'
 end
 
 group :test do
 	gem 'rspec'
+	gem "cucumber-rails"
+  gem 'guard-cucumber'
+	gem 'sqlite3'
+	gem 'database_cleaner'
+  gem 'capybara'
+  gem 'guard-livereload'
 end
 
 # Gems used only for assets and not required
@@ -82,3 +92,10 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+# Testing gems 
+
+gem "email_spec", :group => :test
+gem "capybara", :group => :test
+gem "launchy", :group => :test
+gem 'factory_girl_rails', :group => :test

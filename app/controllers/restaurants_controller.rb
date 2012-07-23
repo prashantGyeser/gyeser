@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
 
-  before_filter :authenticate_user!, :except => [:index, :show]
+  #before_filter :authenticate_user!, :except => [:index, :show]calc
 
   def index
     if params[:search].present?

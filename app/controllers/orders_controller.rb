@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
-  before_filter :authenticate_user!, :except => [:new]
+  #before_filter :authenticate_user!, :except => [:new]
 
   def index
     @orders = Order.all
