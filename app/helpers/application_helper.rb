@@ -1,10 +1,12 @@
 module ApplicationHelper
 
-	# Return a title on every page
-	base_title = "Gyeser | Online food ordering simplified"
-	if @title.nil?
-		base_title
-	else
-		"#{base_title} | #{@title}"
+	def full_title(page_title)
+		base_title = "Gyeser"
+		if page_title.empty?
+			base_title
+		else
+			"#{base_title} | #{page_title}"
+		end
 	end
+	
 end

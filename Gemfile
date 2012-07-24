@@ -42,11 +42,14 @@ gem 'typhoeus'
 # Authentication
 gem "devise"
 
+gem 'factory_girl_rails'
+
 group :development do 
 	gem 'rspec'
   gem 'capybara'
   gem 'launchy'
   gem 'guard-rspec'
+  gem 'rb-inotify'
   gem 'libnotify'
   gem 'guard-livereload'
   gem 'guard-annotate'
@@ -56,12 +59,17 @@ end
 
 group :test do
 	gem 'rspec'
-	gem "cucumber-rails"
+  # The require false needs to be there otherwise spork will be throwing an error
+	gem "cucumber-rails", require: false
   gem 'guard-cucumber'
 	gem 'sqlite3'
 	gem 'database_cleaner'
   gem 'capybara'
   gem 'guard-livereload'
+  gem 'rb-inotify'
+  gem 'libnotify'
+  gem 'guard-spork'
+  gem 'spork'
 end
 
 # Gems used only for assets and not required

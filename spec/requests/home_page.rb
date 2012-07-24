@@ -1,20 +1,19 @@
 require 'spec_helper'
 
 describe "HomePage" do
-  describe "GET /home/index" do
-    it "should have the content 'Gyeser'" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      visit "home"
-      page.should have_selector('title', :text => 'Gyeser | Online food ordering simplified')
-      #response.status.should be(200)
-      #page.should have_tag('input[search]')
-    end
+	subject {page}
+	before {visit root_path}
 
-    it 'should have an input with name search' do
-    	visit 'home'
-    	page.should have_selector('input', :name => 'search')
-    end
+	it {should have_selector('title', :text => 'Gyeser | Online food ordering simplified')}
+	it {should have_selector('input', :name => 'search')}
 
-  end
+	# Filling in the form and checking if it redirects to the right page
+	it "should be able to fill in a search value in the search field" do
+		visit root_path
+		page.should have_selector('input', :name => 'search')
+		find(:css, "search").set('Banjara Hills')
+		#fill_in :input, :with => 'Banjara Hills'
+		click_button
+	end
 
 end
