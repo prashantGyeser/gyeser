@@ -7,8 +7,9 @@ logo.png: logo-7b71a847e55ca9af64da466d489cf96d.png
 logoOption2.png: logoOption2-fb8d21853136191e469818b2d2382d67.png
 questionIcon.png: questionIcon-5cb49f0680e42dee43fd0ead46f43d42.png
 shadow.png: shadow-cd59790fe5733c4f07a160099d991841.png
-application.js: application-499397560d958c9bf83096dc8c4e9dcf.js
+application.js: application-6d2e8b571b6ad59de859e7d22988f8a5.js
 carts.js: carts-3af39f1da6f167c2cbf453ed74daff3d.js
+comming_soons.js: comming_soons-3af39f1da6f167c2cbf453ed74daff3d.js
 home.js: home-3af39f1da6f167c2cbf453ed74daff3d.js
 jquery.autocomplete.js: jquery.autocomplete-73dfcbde6af6b17f76ef1ff553e08028.js
 jquery.lightbox_me.js: jquery.lightbox_me-e940bff32decc45f76ccff8f34e4eeda.js
@@ -22,8 +23,10 @@ restaurants.js: restaurants-3af39f1da6f167c2cbf453ed74daff3d.js
 simpleCart.js: simpleCart-9c51a3f1800e88363f2bb203ac928455.js
 simpleCart.min.js: simpleCart.min-5440075058b585af0ac52103b7464a55.js
 users.js: users-3af39f1da6f167c2cbf453ed74daff3d.js
-application.css: application-56e584aba15c8163d488f1c68240794f.css
+validation.js: validation-54385b8399c4a6ec41b15096f30a155f.js
+application.css: application-39c9290dab090a64565e2a72bbb9c91d.css
 carts.css: carts-7270767b2a9e9fff880aa5de378ca791.css
+comming_soons.css: comming_soons-7270767b2a9e9fff880aa5de378ca791.css
 devise.css: devise-f90b74a9bcf6eb819011b47eb3bfefd4.css
 home.css: home-7270767b2a9e9fff880aa5de378ca791.css
 line_items.css: line_items-7270767b2a9e9fff880aa5de378ca791.css
