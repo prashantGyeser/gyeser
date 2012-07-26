@@ -54,13 +54,24 @@
     price = parseFloat(title.find("span.menuItemPrice").text());
     total = parseFloat($("span#reciptTotalValue").text());
     title = title.html();
-    $("#itemsInCart").append('<li>'+'<input type="text" class="cart_quantity_input" value=1>' + title + '<input value='+item_id+ ' type="hidden">' + '</li>');
+    $("#itemsInCart").append('<li>'+'<input type="text" class="cart_quantity_input" name="'+item_id +'" value=1>' + title + '<input value='+item_id+ ' type="hidden">' + '</li>');
     total = total + price;
     $("span#reciptTotalValue").text(total.toFixed(2));
 
-
+    $(this).remove().fadeOut("slow");
     
   })
+</script>
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$("input[type='text']").live('change',function(){
+		totalQuantity = $(this).val();
+		$(this).parent().find('input.cart_quantity_input');
+		alert(totalQuantity);
+
+	});
+});	
 </script>
 
   <script type="text/javascript">

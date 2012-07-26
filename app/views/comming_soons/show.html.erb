@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @comming_soon.email %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @comming_soon.location %>
+</p>
+
+
+<%= link_to 'Edit', edit_comming_soon_path(@comming_soon) %> |
+<%= link_to 'Back', comming_soons_path %>

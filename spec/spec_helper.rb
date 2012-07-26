@@ -1,5 +1,12 @@
 require 'rubygems'
 require 'spork'
+require 'rspec/rails'
+require 'watir-webdriver-rails'
+
+WatirWebdrverRails.host = "localhost"
+WatirWebdrverRails.port = 57124
+WatirWebdrverRails.close_browser_after_finish = true
+
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 

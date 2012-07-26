@@ -1,0 +1,2 @@
+module CommingSoonsHelper
+end

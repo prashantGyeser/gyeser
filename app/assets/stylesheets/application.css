@@ -596,10 +596,21 @@ Buttons*/
 {
 	background-color: #00A6CB;
 	color: #FFF;
+	border: none;
 }
 .blue.awesome:hover
 {
 	background-color: #007C98;
+}
+.grey.awesome, .grey.awesome:visited
+{
+	background-color: #ccc;
+	color: #FFF;
+}
+.grey.awesome:active
+{
+	background-color: #ccc;
+	color: #FFF;top: 0;
 }
 .red.awesome, .red.awesome:visited
 {
@@ -1296,6 +1307,64 @@ New restaurant page */
 .fullWidthContent input[type=submit]
 {
 	border: none;
+}
+/*==========================================================================
+Coming soon styling
+==========================================================================*/
+.comingSoon
+{
+	background: #FFF;
+	margin: 0 auto;
+	width: 600px;
+	padding: 20px;
+	font: 400 15px / 1.6 "Open Sans", Verdana, Helvetica, sans-serif;
+}
+.comingSoon H1
+{
+	margin: 0;
+	font: 400 60px / 1.3 "Bree Serif", Georgia, serif;
+}
+.comingSoon P
+{
+	letter-spacing: 0.2px;
+	font-weight: 400;
+	margin: 0;
+	margin-bottom: 10px;
+}
+.comingSoon P.fieldExplanation
+{
+	letter-spacing: 0.2px;
+	font-weight: 400;
+	color: #A2A2A2;
+}
+.comingSoon LABEL
+{
+	font-weight: 700;
+	color: #A2A2A2;
+	letter-spacing: 0.5px;
+}
+.comingSoon INPUT[type="text"]
+{
+	display: block;
+	font: 400 15px / 1.6 "Open Sans", Verdana, Helvetica, sans-serif;
+	padding: 5px;
+	width: 100%;
+	margin-top: 5px;
+	border: 1px solid #ddd;
+}
+.comingSoon INPUT[type="email"]
+{
+	display: block;
+	font: 400 15px / 1.6 "Open Sans", Verdana, Helvetica, sans-serif;
+	padding: 5px;
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #ddd;
+}
+.comingSoon INPUT[type="submitl"]
+{
+	margin-top: 10px;
 }
 /*==========================================================================
 ==|== media queries ======================================================

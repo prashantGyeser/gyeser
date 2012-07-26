@@ -1,0 +1,26 @@
+<%= form_for(@comming_soon) do |f| %>
+  <% if @comming_soon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comming_soon.errors.count, "error") %> prohibited this comming_soon from being saved:</h2>
+
+      <ul>
+      <% @comming_soon.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email, :class => "required email" %>
+  </div>
+  <div class="field">
+    <%= f.label :location, :class => "required" %>
+    <p class="fieldExplanation">We are launching in one city at a time, so we will let you know as soon as we are live in your city</p>
+    <%= f.text_field :location %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Add to invite list", :class => "large blue awesome submit" %>
+  </div>
+<% end %>

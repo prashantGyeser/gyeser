@@ -1,0 +1,24 @@
+<% content_for :stylesheets do %>
+	<link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<% end %>
+<div class="comingSoon">
+	<h1>Launching Soon</h1>
+	<p>An easier way to order food online from tons of restaurants without leaving the comfort of your house. While paying for the delivery only once you get the food.</p>
+	<form action="http://gyeser.createsend.com/t/j/s/jjutc/" method="post" id="subForm">
+<div>
+<label for="jjutc-jjutc">Email:</label><br /><input type="text" name="cm-jjutc-jjutc" id="jjutc-jjutc" /><br />
+
+<input type="submit" value="Stay informed" class="large blue awesome" />
+</div>
+</form>
+	<!--<%= render 'form' %>-->
+</div>
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+	$(document).ready(function(){
+			$("#new_comming_soon").validate();
+	});
+</script>
+<% end %>

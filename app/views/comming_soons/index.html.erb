@@ -1,0 +1,25 @@
+<h1>Listing comming_soons</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Location</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @comming_soons.each do |comming_soon| %>
+  <tr>
+    <td><%= comming_soon.email %></td>
+    <td><%= comming_soon.location %></td>
+    <td><%= link_to 'Show', comming_soon %></td>
+    <td><%= link_to 'Edit', edit_comming_soon_path(comming_soon) %></td>
+    <td><%= link_to 'Destroy', comming_soon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Comming soon', new_comming_soon_path %>

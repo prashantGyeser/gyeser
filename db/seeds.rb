@@ -13,6 +13,8 @@ tags1 = "European, North Indian, Mediterranean"
 delivery1 = 45
 imageURL = "https://s3.amazonaws.com/urad/westernRes.jpg"
 detailsImageURL = "https://s3.amazonaws.com/urad/tacos.jpg"
+email_id = "prashant@gyeser.com"
+phone_number = "9840432883"
 
 name2 = "Nautanki Gali"
 address2 = "Ohris Cyber Pearl, Cyber Pearl, Hitech City, Hyderabad   "
@@ -35,11 +37,11 @@ tags5 = "Biryani, Chinese, North Indian, Sea Food"
 delivery5 = 20
 
 
-Restaurant.create!(:name => name1, :address => address1, :tags => tags1, :deliveryTime => delivery1, :imageURL => imageURL, :detailsImageURL => detailsImageURL)
-Restaurant.create!(:name => name2, :address => address2, :tags => tags2, :deliveryTime => delivery2, :imageURL => imageURL, :detailsImageURL => detailsImageURL)
-Restaurant.create!(:name => name3, :address => address3, :tags => tags3, :deliveryTime => delivery3, :imageURL => imageURL, :detailsImageURL => detailsImageURL)
-Restaurant.create!(:name => name4, :address => address4, :tags => tags4, :deliveryTime => delivery4, :imageURL => imageURL, :detailsImageURL => detailsImageURL)
-Restaurant.create!(:name => name5, :address => address5, :tags => tags5, :deliveryTime => delivery5, :imageURL => imageURL, :detailsImageURL => detailsImageURL)
+Restaurant.create!(:name => name1, :address => address1, :tags => tags1, :deliveryTime => delivery1, :imageURL => imageURL, :detailsImageURL => detailsImageURL, :email_id => email_id, :phone_number => phone_number)
+Restaurant.create!(:name => name2, :address => address2, :tags => tags2, :deliveryTime => delivery2, :imageURL => imageURL, :detailsImageURL => detailsImageURL, :email_id => email_id, :phone_number => phone_number)
+Restaurant.create!(:name => name3, :address => address3, :tags => tags3, :deliveryTime => delivery3, :imageURL => imageURL, :detailsImageURL => detailsImageURL, :email_id => email_id, :phone_number => phone_number)
+Restaurant.create!(:name => name4, :address => address4, :tags => tags4, :deliveryTime => delivery4, :imageURL => imageURL, :detailsImageURL => detailsImageURL, :email_id => email_id, :phone_number => phone_number)
+Restaurant.create!(:name => name5, :address => address5, :tags => tags5, :deliveryTime => delivery5, :imageURL => imageURL, :detailsImageURL => detailsImageURL, :email_id => email_id, :phone_number => phone_number)
 
 # Menu seed
 menuItemName1 = "Spinach Lasagna"

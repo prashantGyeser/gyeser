@@ -55,6 +55,8 @@ group :development do
   gem 'guard-annotate'
   gem 'guard-bundler'
   gem 'rspec-rails'
+  gem 'watir-webdriver'
+  gem 'watir-webdriver-rails'
 end
 
 group :test do

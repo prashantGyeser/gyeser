@@ -1,4 +1,6 @@
 Uradv2::Application.routes.draw do
+  resources :comming_soons
+
   get "users/index"
 
   get "users/show"
@@ -12,6 +14,8 @@ Uradv2::Application.routes.draw do
   resources :carts
 
   resources :menu_items
+
+  resources :comming_soons
 
   resources :restaurants
   get "restaurants/index"
@@ -74,7 +78,7 @@ Uradv2::Application.routes.draw do
     root :to => 'home#index'
   end
 
-  root :to => 'home#index'
+  root :to => 'comming_soons#new'
   devise_for :users
   resources :users, :only => [:show, :index]
 
