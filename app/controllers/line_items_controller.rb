@@ -77,7 +77,7 @@ class LineItemsController < ApplicationController
     # Storing the total for the line items in the cart
     cart_total = 0
     @cart.line_items.each do |line_item|
-      cart_total = cart_total + line_item.menu_item.price
+      cart_total = cart_total + (line_item.quantity * line_item.menu_item.price)
     end
     logger.debug "Cart total:#{cart_total}"
     @cart.total = cart_total

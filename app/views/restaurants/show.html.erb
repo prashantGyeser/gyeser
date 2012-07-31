@@ -24,16 +24,21 @@
 
 </div>
 <div class="cart">
-  <h2>Items in cart</h2>
-  <ul id="itemsInCart">
-  </ul>
-  <%= hidden_field("cart_id", 1, value: 0, id: "cart_id_from_server")%>
-  <h4 class="reciptTotal">Total: Rs. <span id="reciptTotalValue">0</span></h4>
-  <a href="#" class="large orange awesome" id="checkout">Checkout now</a>
+	<div class="deliveryTimeDetails">
+		Your order will be delivered in <span class="deliveryTimeDetailsHighlight"><%= @restaurant.deliveryTime %> minutes</span>
+	</div>
+	<div class="itemsInCart">
+		<h2>Items in cart</h2>
+	  <ul id="itemsInCart">
+	  </ul>
+	  <%= hidden_field("cart_id", 1, value: 0, id: "cart_id_from_server")%>
+	  <h4 class="reciptTotal">Total: Rs. <span id="reciptTotalValue">0</span></h4>
+	  <a href="#" class="large orange awesome" id="checkout">Checkout now</a>
 
-  <ul id="result">
-  	
-  </ul>
+	  <ul id="result">
+	  	
+	  </ul>
+	</div>
 </div>
 
 <% content_for :javascript do %>
@@ -41,6 +46,33 @@
 <script type="text/javascript">
 	// Todo: Need to add code so that the user cannot click on the Add to Cart button more than once.
   $("a.blue").click(function(event){
+
+  	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  	// Function to add the item clicked to the cart and if it exists increate the value of that item in the cart
+  	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  	function addMenuItemToCart(item_id,title,price){
+  		var item_available_in_cart = false;
+    	$("ul#itemsInCart li").each(function(index){
+    	var menu_item_id_in_cart_value = $(this).find('input[type="text"]').attr("name");
+	    	// checking if the line item already exisits 
+	    	if (item_id == menu_item_id_in_cart_value){
+	    		cart_item_quantity = $(this).find('input[type="text"]').val();
+	    		cart_item_quantity = parseInt(cart_item_quantity) + 1;
+	    		$(this).find('input[type="text"]').val(cart_item_quantity);
+	    		item_available_in_cart = true;
+	    	}
+	    });
+	    
+	    if (item_available_in_cart == false){
+	    	$("#itemsInCart").append('<li>'+'<input type="text" class="cart_quantity_input" name="'+item_id +'" value=1>' + title + '<input value='+price+ ' type="hidden">' + '</li>');
+		    total = total + price;
+		    $("span#reciptTotalValue").text(total.toFixed(2));	
+	    }
+    	else{
+    		return false;
+    	}
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     var id;
     var title;
 	  var item_id;
@@ -54,9 +86,11 @@
     price = parseFloat(title.find("span.menuItemPrice").text());
     total = parseFloat($("span#reciptTotalValue").text());
     title = title.html();
-    $("#itemsInCart").append('<li>'+'<input type="text" class="cart_quantity_input" name="'+item_id +'" value=1>' + title + '<input value='+item_id+ ' type="hidden">' + '</li>');
-    total = total + price;
-    $("span#reciptTotalValue").text(total.toFixed(2));
+
+    
+
+    addMenuItemToCart(item_id,title,price);
+    
 
     //$(this).remove().fadeOut("slow");
     
@@ -66,11 +100,16 @@
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 	$("input[type='text']").live('change',function(){
-		totalQuantity = $(this).val();
-		$(this).parent().find('input.cart_quantity_input');
-		alert(totalQuantity);
-
-
+		var totalQuantity = $(this).val();
+		var item_id = $(this).attr("name");
+		var price = $(this).parent().find('input[type="hidden"]').val();
+		var cartTotal=0;
+		totalLineItemPrice = totalQuantity * price;
+		$(this).parent().find('.menuItemPrice').text(totalLineItemPrice.toFixed(2));
+		$('#itemsInCart').find('li .menuItemPrice').each(function(){
+			cartTotal += parseFloat($(this).text());
+		});
+		$('#reciptTotalValue').text(cartTotal);
 	});
 });	
 </script>
@@ -84,7 +123,9 @@ jQuery(document).ready(function($) {
 				var quantities = new Array();
 				event.preventDefault();
 				$("ul#itemsInCart li").each(function(index){
-					var item_id = {"menu_item_id": $('input[type="hidden"]', this).val()};
+					//var item_id = {"menu_item_id": $('input[type="hidden"]', this).val()};
+					var item_id = {"menu_item_id": $('input[type="text"]', this).attr("name")};
+					//alert("The item id OBJECT is:"+item_id);
 					var quantity = $('input.cart_quantity_input', this).val();
 					items_in_cart_list.push(item_id);
 					quantities.push(quantity);
