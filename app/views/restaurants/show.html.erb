@@ -16,7 +16,7 @@
       %></span><span class="currencySymbol">Rs. </span></p>
       <p class="menuItemDescription">
         <%= menu_item.description %>
-      </p>
+      </p>      
 		  <%= hidden_field(menu_item.id, menu_item.id, value: menu_item.id)%>
       <a href="#" class="large blue awesome" id="<%=menu_item.id%>">Add to cart</a>
     <% end %>
@@ -58,7 +58,7 @@
     total = total + price;
     $("span#reciptTotalValue").text(total.toFixed(2));
 
-    $(this).remove().fadeOut("slow");
+    //$(this).remove().fadeOut("slow");
     
   })
 </script>
@@ -69,6 +69,7 @@ jQuery(document).ready(function($) {
 		totalQuantity = $(this).val();
 		$(this).parent().find('input.cart_quantity_input');
 		alert(totalQuantity);
+
 
 	});
 });	
