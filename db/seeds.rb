@@ -13,7 +13,7 @@ tags1 = "European, North Indian, Mediterranean"
 delivery1 = 45
 imageURL = "https://s3.amazonaws.com/urad/westernRes.jpg"
 detailsImageURL = "https://s3.amazonaws.com/urad/tacos.jpg"
-email_id = "prashant@gyeser.com"
+email_id = "akhilesh@gyeser.com"
 phone_number = "9840432883"
 
 name2 = "Nautanki Gali"

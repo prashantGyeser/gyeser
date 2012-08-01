@@ -5,11 +5,9 @@
   </head>
   <body>
     <h1>Order Items</h1>
-    <ul>
 	    <% @items_purchased.each do |item| %>
-			<li><%= item.menu_item.name %> <span style="margin-left:40px;font-weight:bold;">Quantity:<%= item.quantity %></span></li>    	
+			<%= item.menu_item.name %> <span style="margin-left:40px;font-weight:bold;">Quantity:<%= item.quantity %></span><br/>
     	<% end %>
-    </ul>
   </body>
 </html>
 
