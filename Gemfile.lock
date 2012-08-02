@@ -82,7 +82,6 @@ GEM
       rspec (~> 2.0)
     erubis (2.7.0)
     eventmachine (0.12.10)
-    excon (0.15.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (3.5.0)
@@ -115,14 +114,6 @@ GEM
     guard-spork (1.1.0)
       guard (>= 1.1)
       spork (>= 0.8.4)
-    heroku (2.29.0)
-      heroku-api (~> 0.2.13)
-      launchy (>= 0.3.2)
-      netrc (~> 0.7.5)
-      rest-client (~> 1.6.1)
-      rubyzip
-    heroku-api (0.2.13)
-      excon (~> 0.15.4)
     hike (1.2.1)
     hirb (0.7.0)
     httparty (0.8.3)
@@ -162,7 +153,6 @@ GEM
     multi_xml (0.5.1)
     net-http-digest_auth (1.2.1)
     net-http-persistent (2.7)
-    netrc (0.7.5)
     nokogiri (1.5.5)
     ntlm-http (0.1.1)
     orm_adapter (0.4.0)
@@ -198,8 +188,6 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12)
       json (~> 1.4)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
     rspec (2.10.0)
       rspec-core (~> 2.10.0)
       rspec-expectations (~> 2.10.0)
@@ -289,7 +277,6 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   guard-spork
-  heroku
   hirb
   jquery-rails
   launchy
